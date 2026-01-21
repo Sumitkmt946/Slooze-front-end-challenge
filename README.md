@@ -188,8 +188,8 @@ src/
 ## Test Credentials
 
 ```
-Manager: chris@gmail.com / chris@123
-Store Keeper: sumit@gmail.com / sumit@123
+Manager: sumit@gmail.com / sumit@123
+Store Keeper: chris@gmail.com / chris@123
 ```
 ---
 
