@@ -37,6 +37,33 @@ The application allows **Managers** to oversee sales statistics and inventory, w
 
 ---
 
+## 📸 Screenshots
+
+### Login Page
+<img width="1364" height="640" alt="image" src="https://github.com/user-attachments/assets/81a69aa5-5ee8-44f2-a7ee-e537991f0d33" />
+*Split-screen login with social authentication options*
+
+### Dashboard (Manager View)
+<img width="1366" height="688" alt="image" src="https://github.com/user-attachments/assets/dbed2e56-90b1-424c-b28f-500f487dc2c1" />
+*Analytics dashboard with stats cards, charts, and recent sales*
+
+### Product List
+<img width="1366" height="685" alt="image" src="https://github.com/user-attachments/assets/b3fc492a-c098-458e-b9cd-0e75b9c5ed41" />
+*Searchable product table with Edit/Delete actions*
+
+### Add Product
+<img width="1366" height="686" alt="image" src="https://github.com/user-attachments/assets/dc285bdc-5dce-41a9-bd67-ce8bcbe77c88" />
+*Two-column form layout for adding new products*
+
+### Edit Product
+<img width="1363" height="685" alt="image" src="https://github.com/user-attachments/assets/3932ee6c-b267-43f4-b96f-05eb2ee02866" />
+*Pre-filled form for updating product details*
+
+### Dark Mode
+<img width="1364" height="682" alt="image" src="https://github.com/user-attachments/assets/9f99ea1c-a93b-4ed0-a3e4-b35529a975ee" />
+*Full dark theme support across all pages*
+
+---
 ## 🛠️ Tech Stack
 
 This project was built using the following technologies:
