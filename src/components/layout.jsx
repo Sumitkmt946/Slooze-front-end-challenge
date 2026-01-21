@@ -63,18 +63,18 @@ export default function PageLayout({ children }) {
           <p className="px-4 text-xs font-semibold text-text-gray uppercase tracking-wider mb-4">Menu</p>
 
           {role === 'manager' && (
-            <Link to="/dashboard" className={`flex items - center gap - 3 px - 4 py - 3 rounded - xl transition - all duration - 200 ${isActive('dashboard') ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'text-text-gray hover:bg-gray-50 dark:hover:bg-gray-700'} `}>
+            <Link to="/dashboard" className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${isActive('dashboard') ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'text-text-gray hover:bg-gray-50 dark:hover:bg-gray-700'}`}>
               <FiGrid className="text-xl" />
               <span className="font-medium">Dashboard</span>
             </Link>
           )}
 
-          <Link to="/product" className={`flex items - center gap - 3 px - 4 py - 3 rounded - xl transition - all duration - 200 ${isActive('product') && !isActive('add') ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'text-text-gray hover:bg-gray-50 dark:hover:bg-gray-700'} `}>
+          <Link to="/product" className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${isActive('product') && !isActive('add') ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'text-text-gray hover:bg-gray-50 dark:hover:bg-gray-700'}`}>
             <BiStore className="text-xl" />
             <span className="font-medium">Products</span>
           </Link>
 
-          <Link to="/product/add" className={`flex items - center gap - 3 px - 4 py - 3 rounded - xl transition - all duration - 200 ${isActive('product/add') ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'text-text-gray hover:bg-gray-50 dark:hover:bg-gray-700'} `}>
+          <Link to="/product/add" className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${isActive('product/add') ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'text-text-gray hover:bg-gray-50 dark:hover:bg-gray-700'}`}>
             <FiPlusSquare className="text-xl" />
             <span className="font-medium">Add Product</span>
           </Link>
