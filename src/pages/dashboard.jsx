@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PageLayout from "../components/layout";
 import { Bar } from "react-chartjs-2";
 import "../chartConfig";
-import { DASHBOARD_URL } from "../constant";
+import { getProducts } from "../dataService";
 import {
   FiDollarSign,
   FiShoppingBag,
@@ -31,8 +31,7 @@ export default function Dashboard() {
   // Fetch logic preserved
   const fetchData = async () => {
     try {
-      const response = await fetch(DASHBOARD_URL);
-      const datas = await response.json();
+      const datas = await getProducts();
       const name = datas.map((key) => key.name).slice(0, 12); // Show more for the big chart
       const qty = datas.map((key) => key.quantity).slice(0, 12);
 

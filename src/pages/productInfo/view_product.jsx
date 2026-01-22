@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PageLayout from "../../components/layout";
-import { PRODUCT_URL } from "../../constant";
+import { getProducts, deleteProduct } from "../../dataService";
 import { Link } from "react-router-dom";
 import { FiEdit, FiTrash2, FiPlus, FiSearch } from "react-icons/fi";
 import Swal from "sweetalert2";
@@ -12,8 +12,7 @@ export default function ViewProduct() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(PRODUCT_URL);
-      const datas = await response.json();
+      const datas = await getProducts();
       setData(datas);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -38,19 +37,13 @@ export default function ViewProduct() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const deleteUrl = `${PRODUCT_URL}/${id}`;
-          const response = await fetch(deleteUrl, { method: 'DELETE' });
-
-          if (response.ok) {
-            Swal.fire(
-              'Deleted!',
-              'Your file has been deleted.',
-              'success'
-            );
-            fetchData(); // Refresh list
-          } else {
-            Swal.fire('Error!', 'Failed to delete product.', 'error');
-          }
+          await deleteProduct(id);
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          );
+          fetchData(); // Refresh list
         } catch (error) {
           Swal.fire('Error!', 'Something went wrong.', 'error');
         }

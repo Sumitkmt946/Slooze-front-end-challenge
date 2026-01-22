@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LOGIN_URL } from "../../constant";
+import { authenticateUser } from "../../dataService";
 import { FiCheckSquare, FiSquare } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
@@ -20,9 +20,7 @@ export default function Login() {
     setError("");
 
     try {
-      const loginUrl = LOGIN_URL.replace('paramEmail', formData.email).replace('paramPassword', formData.password);
-      const response = await fetch(loginUrl);
-      const data = await response.json();
+      const data = await authenticateUser(formData.email, formData.password);
 
       if (data.length > 0) {
         const user = data[0];
@@ -37,7 +35,7 @@ export default function Login() {
         setError("Invalid email or password");
       }
     } catch (error) {
-      setError("Error connecting to server");
+      setError("Error during authentication");
     } finally {
       setLoading(false);
     }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import PageLayout from "../../components/layout";
 import { useParams, useNavigate } from "react-router-dom";
-import { PRODUCTGET_URL, EDIT_URL } from "../../constant";
+import { getProductById, updateProduct } from "../../dataService";
 import { FiImage, FiArrowLeft } from "react-icons/fi";
 
 export default function Editproduct() {
@@ -27,8 +27,7 @@ export default function Editproduct() {
   const getAllProduct = useCallback(async () => {
     try {
       setProdId(params.id);
-      const response = await fetch(PRODUCTGET_URL.replace("paramId", params.id));
-      const data = await response.json();
+      const data = await getProductById(params.id);
 
       if (data.length > 0) {
         const product = data[0];
@@ -77,22 +76,12 @@ export default function Editproduct() {
     };
 
     try {
-      const response = await fetch(EDIT_URL.replace('paramId', prodId), {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (response.ok) {
-        setType("success");
-        setError("Product updated successfully!");
-      } else {
-        setType("error");
-        setError("Failed to update product");
-      }
+      await updateProduct(prodId, payload);
+      setType("success");
+      setError("Product updated successfully!");
     } catch (error) {
       setType("error");
-      setError("Error connecting to server");
+      setError("Failed to update product");
     } finally {
       setLoading(false);
     }

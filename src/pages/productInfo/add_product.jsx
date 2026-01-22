@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PageLayout from "../../components/layout";
-import { ADD_URL } from "../../constant";
+import { addProduct } from "../../dataService";
 import { FiImage } from "react-icons/fi";
 
 export default function Addproduct() {
@@ -41,23 +41,13 @@ export default function Addproduct() {
     };
 
     try {
-      const response = await fetch(ADD_URL, {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: { "Content-Type": "application/json" } // Ensure generic header
-      });
-
-      if (response.ok) {
-        setType("success");
-        setError("Product added successfully!");
-        setFormData({ name: "", category: "", quantity: 0, weight: 0, price: 0, description: "", tags: "" });
-      } else {
-        setType("error");
-        setError("Failed to add product");
-      }
+      await addProduct(payload);
+      setType("success");
+      setError("Product added successfully!");
+      setFormData({ name: "", category: "", quantity: 0, weight: 0, price: 0, description: "", tags: "" });
     } catch (error) {
       setType("error");
-      setError("Error connecting to server");
+      setError("Failed to add product");
     } finally {
       setLoading(false);
     }
